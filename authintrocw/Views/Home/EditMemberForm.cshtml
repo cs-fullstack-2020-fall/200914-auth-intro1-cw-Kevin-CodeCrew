@@ -1,0 +1,23 @@
+@model authintrocw.Models.CustomerModel;
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+<h1>Edit Customer</h1>
+@using (@Html.BeginForm("EditMember", "Home"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(customer => customer.customerFirstName)
+        @Html.TextBoxFor(customer => customer.customerFirstName, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(customer => customer.customerLastName)
+        @Html.TextBoxFor(customer => customer.customerLastName, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(customer => customer.customerProfile)
+        @Html.TextBoxFor(customer => customer.customerProfile, new { @class="form-control"})
+    </div>
+    @Html.HiddenFor(customer => customer.id)
+  <button type="submit" class="btn btn-primary"> Submit </button>
+}

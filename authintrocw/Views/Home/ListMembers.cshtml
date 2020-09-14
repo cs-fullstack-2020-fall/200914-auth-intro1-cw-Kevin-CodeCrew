@@ -1,0 +1,25 @@
+@model authintrocw.Data.ApplicationDbContext
+
+@{
+    ViewData["Title"] = "List Customers";
+}
+ <h1>View All</h1>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Profile</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (CustomerModel customer in @Model.customers)
+        {
+            <tr>
+                <th scrope="row">@customer.id</th>
+                <td> <a asp-area="" asp-controller="Home" asp-action="EditMemberForm" asp-route-id ="@customer.id">@customer.customerFirstName @customer.customerLastName</a> </td>
+                <td>@customer.customerProfile</td>
+            </tr>
+        }            
+        </tbody>
+    </table>
